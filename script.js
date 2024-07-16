@@ -4,6 +4,7 @@ const exitBtn = document.querySelector('.exit-btn');
 const main = document.querySelector('.main');
 const continueBtn = document.querySelector('.continue-btn');
 const quizSection = document.querySelector('.quiz-section');
+const quizBox = document.querySelector('.quiz-box');
 
 startBtn.onclick = () => {
     popupInfo.classList.add('active');
@@ -19,4 +20,86 @@ continueBtn.onclick = () => {
     quizSection.classList.add('active');
     popupInfo.classList.remove('active');
     main.classList.remove('active');
+    quizBox.classList.add('active');
+
+    showQuestions(0);
+    questionCounter(1);
+    headerScore();
+}
+
+let questionCount = 0;
+let questionNumb = 1;
+let userScore = 0;
+
+const nextBtn = document.querySelector('.next-btn');
+
+nextBtn.onclick = () => {
+    if (questionCount < questions.length - 1) {
+        questionCount++;
+        showQuestions(questionCount);
+        
+        questionNumb++;
+        questionCounter(questionNumb);
+
+        nextBtn.classList.remove('active');
+    } else {
+        console.log('Questions completed');
+    }
+}
+
+const optionList = document.querySelector('.option-list');
+
+// Getting questions and options from the array
+
+function showQuestions(index) {
+    const questionText = document.querySelector('.question-text');
+    questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
+
+    let optionTag = `<div class="option"><span>${questions[index].options[0]}</span></div>
+        <div class="option"><span>${questions[index].options[1]}</span></div>
+        <div class="option"><span>${questions[index].options[2]}</span></div>
+        <div class="option"><span>${questions[index].options[3]}</span></div>`;
+
+    optionList.innerHTML = optionTag;
+    const option = optionList.querySelectorAll('.option');
+    for (let i = 0; i < option.length; i++) {
+        option[i].setAttribute('onclick', 'optionSelected(this)');
+    
+    }
+}
+
+function optionSelected(answer) {
+    let userAnswer = answer.textContent;
+    let correctAnswer = questions[questionCount].answer;
+    let allOptions = optionList.children.length;
+    if (userAnswer == correctAnswer) {
+        answer.classList.add('correct');
+        userScore++;
+        headerScore();
+    } else {
+        answer.classList.add('incorrect');
+
+        // if the answer is incorrect, then automatically select the correct answer
+        for (let i = 0; i < allOptions; i++) {
+            if (optionList.children[i].textContent == correctAnswer) {
+                optionList.children[i].setAttribute('class', 'option correct');
+            }
+        }   
+
+        // if the user has selected an option, then disable the options
+        for (let i = 0; i < allOptions; i++) {
+            optionList.children[i].classList.add('disabled');
+        }
+    }
+    nextBtn.classList.add('active');
+}
+
+function questionCounter(index) {
+    const questionTotal = document.querySelector('.question-total');
+    questionTotal.textContent = `${index} of ${questions.length} Questions`;
+}
+
+function headerScore() {
+    const headerScoreText = document.querySelector('.header-score');
+    headerScoreText.textContent = `Score: ${userScore} / ${questions.length}`;
 }
