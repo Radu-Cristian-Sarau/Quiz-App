@@ -1,57 +1,57 @@
 let questions = [
     {
         numb: 1,
-        question: "Complete the phrase: Barella, Nutella, ...",
-        answer: "A. Cucurella",
+        question: "What year did the USSR dissolve?",
+        answer: "A. 1991",
         options: [
-            "A. Cucurella",
-            "B. Skibidi Ronaldo",
-            "C. Sigma",
-            "D. Ohio"
+            "A. 1991",
+            "B. 1990",
+            "C. 1992",
+            "D. 1989"
         ]
     },
     {
         numb: 2,
-        question: "Which US state is known for its abnormal activities?",
-        answer: "C. Ohio",
+        question: "Who was the first US president?",
+        answer: "C. George Washington",
         options: [
-            "A. California",
-            "B. Texas",
-            "C. Ohio",
-            "D. Florida"
+            "A. Ronald Reagan",
+            "B. Abraham Lincoln",
+            "C. George Washington",
+            "D. Thomas Jefferson"
         ]
     },
     {
         numb: 3,
-        question: "Which famous streamer imposes a tax on the food his housemates order?",
-        answer: "B. Fanum",
+        question: "What year did the Titanic sink?",
+        answer: "B. 1912",
         options: [
-            "A. Ninja",
-            "B. Fanum",
-            "C. Pokimane",
-            "D. Tfue"
+            "A. 1910",
+            "B. 1912",
+            "C. 1914",
+            "D. 1916"
         ]
     },
     {
         numb: 4,
-        question: "What year was the John Wick skin released in Fortnite?",
-        answer: "D. 2019",
+        question: "What year did the First World War begin?",
+        answer: "D. 1914",
         options: [
-            "A. 2017",
-            "B. 2021",
-            "C. 2022",
-            "D. 2019"
+            "A. 1920",
+            "B. 1916",
+            "C. 1918",
+            "D. 1914"
         ]
     },
     {
         numb: 5,
-        question: "What does 'MLG' stand for?",
-        answer: "B. Major League Gaming",
+        question: "What year did the Apollo 11 land on the Moon?",
+        answer: "B. 1969",
         options: [
-            "A. Major League Gamers",
-            "B. Major League Gaming",
-            "C. Minecraft League Gamers",
-            "D. Minecraft League Gaming"
+            "A. 1968",
+            "B. 1969",
+            "C. 1965",
+            "D. 1970"
         ]
     }
 ];
